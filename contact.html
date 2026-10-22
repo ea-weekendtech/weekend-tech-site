@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact &mdash; E's Weekend Tech</title>
+<meta name="description" content="Call or text 512-843-2291, email ea.weekendtech@gmail.com, or send a quote request. Weekends 8 AM to 5 PM, Taylor and Austin, TX.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav-row">
+    <a class="wordmark" href="index.html">E's <span>Weekend</span> Tech</a>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Contact</div>
+      <h2>Get in touch</h2>
+      <p>I'd love to hear from you. Calling or texting is the fastest way to reach me, and the form below puts together a friendly message you can send straight over, nothing leaves this page on its own.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="touch">
+        <div class="touch-row">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+          <div>
+            <div class="label">Call or text</div>
+            <div class="value" id="val-phone">512-843-2291</div>
+          </div>
+          <button class="copy-btn" data-copy="val-phone" type="button">Copy</button>
+        </div>
+        <div class="touch-row">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          <div>
+            <div class="label">Email</div>
+            <div class="value" id="val-email">ea.weekendtech@gmail.com</div>
+          </div>
+          <button class="copy-btn" data-copy="val-email" type="button">Copy</button>
+        </div>
+        <div class="touch-row">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>
+          <div>
+            <div class="label">Hours</div>
+            <div class="value">Sat &amp; Sun, 8 AM&ndash;5 PM</div>
+          </div>
+        </div>
+        <div class="touch-row">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <div class="label">Service area</div>
+            <div class="value">Greater Taylor &amp; Austin, TX</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <form class="quote" id="quote-form">
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" required autocomplete="name">
+          </div>
+          <div class="two-col">
+            <div class="field">
+              <label for="f-contact-method">Best way to reach you</label>
+              <select id="f-contact-method" name="method">
+                <option value="Text">Text</option>
+                <option value="Call">Call</option>
+                <option value="Email">Email</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-contact-value">Phone or email</label>
+              <input id="f-contact-value" name="contact" type="text" required placeholder="512-555-0100">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-service">What do you need help with</label>
+            <select id="f-service" name="service">
+              <option>Computer &amp; printer setup</option>
+              <option>Wi-Fi &amp; network</option>
+              <option>Smart home setup</option>
+              <option>Software &amp; app issues</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-details">What's going on</label>
+            <textarea id="f-details" name="details" placeholder="A sentence or two is plenty."></textarea>
+          </div>
+          <button class="btn btn-primary quote-submit" type="submit">
+            Build my request
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+
+        <div class="confirm" id="confirm-panel">
+          <h3>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            Your request is ready
+          </h3>
+          <p style="color: var(--muted); font-size: 14.5px;">Copy this and send it over, whichever way is easiest for you.</p>
+          <div class="confirm-text" id="confirm-text"></div>
+          <div class="confirm-actions">
+            <button class="btn btn-primary" type="button" id="copy-confirm">Copy request</button>
+            <a class="btn btn-ghost" id="text-link" href="#">Open as text</a>
+            <a class="btn btn-ghost" id="email-link" href="#">Open as email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap foot-row">
+    <div>
+      <div class="wordmark">E's <span>Weekend</span> Tech</div>
+      <div class="foot-meta">
+        <span>Weekend IT help &middot; Taylor &amp; Austin, TX</span>
+        <span>512-843-2291 &middot; ea.weekendtech@gmail.com</span>
+      </div>
+    </div>
+    <div class="foot-right">
+      Sat &amp; Sun, 8 AM&ndash;5 PM<br>
+      Quotes given before any work starts
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
