@@ -1,4 +1,33 @@
 (function () {
+  // scroll-reveal
+  var revealEls = document.querySelectorAll('.reveal');
+  if (revealEls.length) {
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(function (el) { observer.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+    }
+  }
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    var q = item.querySelector('.faq-q');
+    if (!q) return;
+    q.addEventListener('click', function () {
+      var isOpen = item.getAttribute('data-open') === 'true';
+      item.setAttribute('data-open', isOpen ? 'false' : 'true');
+      q.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    });
+  });
+
   function copyText(text, btn) {
     function done(ok) {
       if (!btn) return;
@@ -48,6 +77,10 @@
 
     confirmText.textContent = message;
     confirmPanel.classList.add('show');
+    confirmPanel.classList.remove('in');
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { confirmPanel.classList.add('in'); });
+    });
 
     var smsBody = encodeURIComponent(message);
     textLink.href = 'sms:+15128432291?body=' + smsBody;
