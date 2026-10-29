@@ -53,7 +53,17 @@ html, body { margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  /* keep the state changes, drop the movement: sections fade in place, the FAQ answer
+     appears at once while its chevron still flips, hover lifts and loops stop */
+  .reveal { transform: none; transition: opacity 0.25s ease; }
+  .faq-a-wrap { transition: none; }
+  .badge svg, .about-mark { animation: none; }
+  :hover, :active { transform: none !important; }
+}
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 body {
   background: var(--bg);
@@ -65,7 +75,7 @@ body {
 h1, h2, h3 { font-family: 'Archivo', system-ui, sans-serif; font-weight: 800; letter-spacing: -0.01em; text-wrap: balance; margin: 0; }
 .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
 a { color: var(--accent); }
-p { line-height: 1.6; color: var(--muted); margin: 0; }
+p { line-height: 1.6; color: var(--muted); margin: 0; text-wrap: pretty; }
 img { max-width: 100%; }
 .wrap { max-width: 1040px; margin: 0 auto; }
 button { font-family: inherit; cursor: pointer; }
@@ -118,6 +128,9 @@ nav.links a {
 }
 nav.links a[aria-current="page"] { color: var(--ink); background: var(--surface-2); }
 nav.links a:hover { color: var(--ink); background: var(--surface-2); }
+@media (pointer: coarse) {
+  nav.links a { display: inline-flex; align-items: center; min-height: 44px; }
+}
 
 /* hero */
 .eyebrow {
@@ -249,7 +262,7 @@ section.band { border-top: 1px solid var(--line); }
 }
 .about-body { flex: 1 1 320px; min-width: 0; }
 .about-body h3 { font-size: 19px; margin-bottom: 8px; }
-.about-body p { font-size: 15px; }
+.about-body p { font-size: 15px; max-width: 58ch; }
 .about-body p + p { margin-top: 10px; }
 
 /* services page */
@@ -394,6 +407,7 @@ form.quote {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
 }
 .field textarea { min-height: 92px; resize: vertical; }
+.field input::placeholder, .field textarea::placeholder { color: var(--muted); opacity: 1; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 @media (max-width: 480px) { .two-col { grid-template-columns: 1fr; } }
 .quote-submit { align-self: flex-start; }
