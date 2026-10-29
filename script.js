@@ -1,6 +1,26 @@
 (function () {
+  // light is the default; the toggle in the header switches to dark and remembers the choice
+  var root = document.documentElement;
+  var themeBtn = document.querySelector('.theme-toggle');
+  var themeColor = document.querySelector('meta[name="theme-color"]');
+  function applyTheme(theme) {
+    if (theme === 'dark') root.setAttribute('data-theme', 'dark'); else root.removeAttribute('data-theme');
+    if (themeBtn) themeBtn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+    if (themeColor) themeColor.setAttribute('content', theme === 'dark' ? '#0F7A41' : '#0B6B3A');
+  }
+  applyTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.classList.add('theme-anim');
+      applyTheme(next);
+      setTimeout(function () { root.classList.remove('theme-anim'); }, 350);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  }
+
   // scroll-reveal
-  var revealEls = document.querySelectorAll('.reveal');
+  var revealEls = document.querySelectorAll('.reveal, .road, .route');
   if (revealEls.length) {
     if ('IntersectionObserver' in window) {
       var observer = new IntersectionObserver(function (entries) {
